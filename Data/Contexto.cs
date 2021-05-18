@@ -15,5 +15,17 @@ namespace RegistroCliente.Data
         public Contexto()
         {
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+
+            optionsBuilder.UseSqlite(@"Data Source= Data\Clientes.db");
+
+        }
+
+        internal object Entry(Clientes cliente)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

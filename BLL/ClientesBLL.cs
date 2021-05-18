@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using RegistroCliente.Data;
+﻿using RegistroCliente.Data;
 using RegistroCliente.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,6 +19,8 @@ namespace RegistroCliente.BLL
 
         public bool Insertar(Clientes clientes)
         {
+            _ = new Contexto();
+
             bool paso;
             if (clientes.ClienteId == 0)
             {
@@ -64,13 +66,13 @@ namespace RegistroCliente.BLL
         {
 
             bool paso = false;
-            Contexto contexto = new Contexto();
+            Contexto Contexto = new Contexto();
 
             try
             {
 
-                contexto.Entry(clientes).State = (Microsoft.EntityFrameworkCore.EntityState)EntityState.Modified;
-                paso = contexto.SaveChanges() > 0;
+                Contexto.Entry(clientes).State = EntityState.Modified;
+                paso = Contexto.SaveChanges() > 0;
             }
             catch (Exception)
             {
@@ -80,7 +82,7 @@ namespace RegistroCliente.BLL
             finally
             {
 
-                contexto.Dispose();
+                Contexto.Dispose();
             }
 
             return paso;
@@ -90,14 +92,14 @@ namespace RegistroCliente.BLL
         {
 
             bool paso = false;
-            Contexto contexto = new Contexto();
-            Clientes clientes = contexto.Clientes.Find(Id);
+            Contexto Contexto = new Contexto();
+            Clientes clientes = Contexto.Clientes.Find(Id);
 
             try
             {
 
-                contexto.Entry(clientes).State = (Microsoft.EntityFrameworkCore.EntityState)EntityState.Deleted;
-                paso = contexto.SaveChanges() > 0;
+                Contexto.Entry(clientes).State = EntityState.Modified;
+                paso = Contexto.SaveChanges() > 0;
             }
             catch (Exception)
             {
@@ -107,7 +109,7 @@ namespace RegistroCliente.BLL
             finally
             {
 
-                contexto.Dispose();
+                Contexto.Dispose();
             }
 
             return paso;
@@ -132,7 +134,7 @@ namespace RegistroCliente.BLL
             finally
             {
 
-                contexto.Dispose();
+                Contexto.Dispose();
             }
 
             return clientes;
