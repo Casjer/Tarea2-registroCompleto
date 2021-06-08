@@ -22,6 +22,9 @@ namespace RegistroCliente.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Balance")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Cedula")
                         .HasColumnType("TEXT");
 

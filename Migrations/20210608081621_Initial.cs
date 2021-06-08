@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RegistroCliente.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,7 +17,8 @@ namespace RegistroCliente.Migrations
                     Telefono = table.Column<string>(type: "TEXT", nullable: true),
                     Cedula = table.Column<string>(type: "TEXT", nullable: true),
                     Direccion = table.Column<string>(type: "TEXT", nullable: true),
-                    FechaNacimiento = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    FechaNacimiento = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Balance = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

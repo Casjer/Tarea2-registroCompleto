@@ -10,22 +10,10 @@ namespace RegistroCliente.Data
     public class Contexto : DbContext
     {
         public DbSet<Clientes> Clientes { get; set; }
-        public Contexto(DbContextOptions<Contexto> options) : base(options) { }
-
-        public Contexto()
-        {
-        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
-            optionsBuilder.UseSqlite(@"Data Source= Data\Clientes.db");
-
-        }
-
-        internal object Entry(Clientes cliente)
-        {
-            throw new NotImplementedException();
+            optionsBuilder.UseSqlite(@"Data Source = Data\Clientes.db");
         }
     }
 }

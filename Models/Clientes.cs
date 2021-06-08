@@ -16,15 +16,7 @@ namespace RegistroCliente.Models
         public string Direccion { get; set; }
         public DateTime FechaNacimiento { get; set; }
 
-        public Clientes()
-        {
-            ClienteId = 0;
-            Nombre = string.Empty;
-            Telefono = string.Empty;
-            Cedula = string.Empty;
-            Direccion = string.Empty;
-            FechaNacimiento = DateTime.Now;
-        }
+        public string Balance { get; set; }
     }
 
 }

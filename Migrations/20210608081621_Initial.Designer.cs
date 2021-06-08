@@ -9,8 +9,8 @@ using RegistroCliente.Data;
 namespace RegistroCliente.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20210517221130_Inicial")]
-    partial class Inicial
+    [Migration("20210608081621_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,9 @@ namespace RegistroCliente.Migrations
                     b.Property<int>("ClienteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Balance")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Cedula")
                         .HasColumnType("TEXT");

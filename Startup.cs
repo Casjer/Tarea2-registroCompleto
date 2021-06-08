@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Blazored.Toast;
 
 namespace RegistroCliente
 {
@@ -27,12 +28,12 @@ namespace RegistroCliente
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            services.AddBlazoredToast();
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
 
-            services.AddDbContext<Contexto>(op => op.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            
            
         }
        
